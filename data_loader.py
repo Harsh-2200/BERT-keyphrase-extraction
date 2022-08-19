@@ -47,7 +47,8 @@ class DataLoader(object):
         with open(sentences_file, 'r') as file:
             for line in file:
                 # replace each token by its index
-                tokens = line.split()
+                tokens = self.tokenizer.tokenize([line])
+                # tokens = line.split()
                 sentences.append(self.tokenizer.convert_tokens_to_ids(tokens))
         
         with open(tags_file, 'r') as file:
